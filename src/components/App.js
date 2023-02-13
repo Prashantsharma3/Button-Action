@@ -1,20 +1,28 @@
 import React, {Component, useState} from "react";
 import "./../styles/App.css";
-function MyButton() {
-  // Declare a state variable called "showText" and initialize it to false
-  const [showText, setShowText] = useState(false);
+const Assignment = () => {
+  // Initialize the state with false, meaning the paragraph is not visible
+  const [isVisible, setIsVisible] = useState(false);
+
+  // On button click, toggle the state of isVisible
+  const handleClick = () => {
+    setIsVisible(!isVisible);
+  };
 
   return (
     <div>
-      <button id="click" onClick={() => setShowText(!showText)}>
+      {/* Render button with id "click" */}
+      <button id="click" onClick={handleClick}>
         Click Me
       </button>
-      {showText && (
-        <p id="para">Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy</p>
+      {/* Conditionally render the paragraph based on isVisible state */}
+      {isVisible && (
+        <p id="para">
+          Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy
+        </p>
       )}
     </div>
   );
-}
+};
 
-export default MyButton;
-
+export default Assignment;
